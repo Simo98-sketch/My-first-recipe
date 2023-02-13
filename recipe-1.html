@@ -12,13 +12,28 @@
 </head>
 
 <body>
-  <nav>
-    <a href="recipe-1.html"></a>
-    <a href="recipe-2.html"></a>
-    <a href="recipe-3.html"></a>
-  </nav>
+    <nav>
+        <a href="index.php?recipe=1">Recipe 1</a>
+        <a href="index.php?recipe=2">Recipe 2</a>
+        <a href="index.php?recipe=3">Recipe 3</a>
+      </nav>
       <div id="content">
-        
+        <?php
+          $recipe = isset($_GET['recipe']) ? intval($_GET['recipe']) : 1;
+          switch ($recipe) {
+            case 1:
+              include 'recipe1.html';
+              break;
+            case 2:
+              include 'recipe2.html';
+              break;
+            case 3:
+              include 'recipe3.html';
+              break;
+            default:
+              include 'recipe1.html';
+          }
+        ?>
       </div>
     
     <article>
