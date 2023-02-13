@@ -2,14 +2,39 @@
 <html lang="en">
 
 <head>
+    <header>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Three recipes</title>
     <link rel="stylesheet" href="style.css">
+</header>
 </head>
 
 <body>
+    <nav>
+        <a href="index.php?recipe=1">Recipe 1</a>
+        <a href="index.php?recipe=2">Recipe 2</a>
+        <a href="index.php?recipe=3">Recipe 3</a>
+      </nav>
+      <div id="content">
+        <?php
+          $recipe = isset($_GET['recipe']) ? intval($_GET['recipe']) : 1;
+          switch ($recipe) {
+            case 1:
+              include 'recipe1.html';
+              break;
+            case 2:
+              include 'recipe2.html';
+              break;
+            case 3:
+              include 'recipe3.html';
+              break;
+            default:
+              include 'recipe1.html';
+          }
+        ?>
+      </div>
     
     <article>
         <h1>POLENTA BRESCIANA - GIALLO ZAFFERANO</h1>
@@ -85,6 +110,9 @@
     <p>Buon appetito!</p>
     <a href="https://ricette.giallozafferano.it/Spaghetti-alla-Carbonara.html">Go to spaghetti!</a>
 
+<footer>
+    <a href="#" class="back-to-top">Back to Top</a>
+        <p>Copyright © 2023 by <b>Simone Archetti</b></p>
+</footer>
 </body>
-
 </html>
